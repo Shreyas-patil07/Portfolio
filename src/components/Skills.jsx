@@ -4,41 +4,49 @@ const categories = [
   {
     id: 'languages',
     title: 'Languages',
+    accent: '#a78bfa',
     items: ['Python', 'Dart', 'SQL', 'HTML', 'C++', 'CSS'],
   },
   {
     id: 'frontend',
     title: 'Frontend',
+    accent: '#60a5fa',
     items: ['React', 'Vite', 'Flutter'],
   },
   {
     id: 'backend',
     title: 'Backend',
+    accent: '#34d399',
     items: ['FastAPI', 'Flask', 'REST API'],
   },
   {
     id: 'database',
     title: 'Databases',
+    accent: '#38bdf8',
     items: ['Firebase Firestore', 'Supabase', 'SQLite', 'PostgreSQL', 'MongoDB'],
   },
   {
     id: 'security',
     title: 'Authentication & Security',
+    accent: '#f472b6',
     items: ['Firebase Auth', 'JWT', 'Argon2'],
   },
   {
     id: 'ai',
     title: 'AI & Integrations',
+    accent: '#c084fc',
     items: ['Gemini API', 'Prompt Engineering', 'LLM Integration'],
   },
   {
     id: 'cloud',
     title: 'Cloud & Deployment',
+    accent: '#2dd4bf',
     items: ['Vercel', 'Render', 'Cloudinary'],
   },
   {
     id: 'tools',
     title: 'Tools',
+    accent: '#fbbf24',
     items: ['Git & GitHub', 'Postman', 'Android Studio', 'VS Code', 'Antigravity'],
   },
 ];
@@ -83,63 +91,24 @@ const Skills = () => {
           </p>
         </div>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 230px), 1fr))',
-          gap: '14px',
-        }}>
+        <div className="skills-grid">
           {categories.map(category => (
             <div
               key={category.id}
-              className="reveal"
-              style={{
-                padding: '22px',
-                borderRadius: '14px',
-                border: '1px solid rgba(255,255,255,0.07)',
-                background: 'rgba(13,17,23,0.42)',
-                transition: 'border-color 0.25s ease, background 0.25s ease',
-              }}
+              className="skill-category-card reveal"
+              style={{ '--skill-accent': category.accent }}
             >
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                gap: '12px',
-                marginBottom: '18px',
-              }}>
-                <h3 style={{
-                  color: '#e0e2e6',
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  fontSize: '1rem',
-                  fontWeight: 650,
-                  letterSpacing: '-0.015em',
-                }}>
-                  {category.title}
-                </h3>
-                <span style={{
-                  color: '#6b7280',
-                  fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: '10px',
-                }}>
+              <div className="skill-category-heading">
+                <span className="skill-category-dot" />
+                <h3>{category.title}</h3>
+                <span className="skill-category-count">
                   {String(category.items.length).padStart(2, '0')}
                 </span>
               </div>
 
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+              <div className="skill-tags">
                 {category.items.map(item => (
-                  <span
-                    key={item}
-                    style={{
-                      padding: '7px 10px',
-                      borderRadius: '7px',
-                      border: '1px solid rgba(255,255,255,0.06)',
-                      background: 'rgba(255,255,255,0.025)',
-                      color: '#aeb4c0',
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: '12px',
-                      lineHeight: 1.2,
-                    }}
-                  >
+                  <span key={item} className="skill-tag">
                     {item}
                   </span>
                 ))}
