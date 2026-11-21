@@ -4,6 +4,42 @@ import cafeLogo from '../assets/logo00.png';
 
 const projects = [
   {
+    id: 'sync-in-it',
+    varName: 'syncInIt',
+    logo: 'https://raw.githubusercontent.com/Shreyas-patil07/Sync-in-it/main/frontend/public/images/sync_in_it.png',
+    logoAlt: 'Sync In It logo',
+    badge: { text: 'ANDROID + CLOUD AUDIO', color: '#7dd3fc', bg: 'rgba(125,211,252,0.08)', border: 'rgba(125,211,252,0.22)' },
+    title: 'SYNC IN IT',
+    url: null,
+    github: 'https://github.com/Shreyas-patil07/Sync-in-it',
+    tags: ['Android', 'Kotlin', 'FastAPI', 'LiveKit Cloud', 'WebRTC'],
+    description: 'An Android-first audio-sharing app that streams a host device’s audio to multiple phones over the internet. QR-based invitations connect speakers through a FastAPI session backend and LiveKit Cloud.',
+    architecture: 'Android + FastAPI / LiveKit Cloud',
+    code: [
+      { key: 'platform', val: "'Android-first'" },
+      { key: 'transport', val: "'LiveKit Cloud / WebRTC'" },
+      { key: 'sessions', val: "'QR-based invitations'" },
+    ],
+  },
+  {
+    id: 'dex',
+    varName: 'dex',
+    logo: 'https://raw.githubusercontent.com/Shreyas-patil07/Dex/main/frontend/public/Dex_icon.png',
+    logoAlt: 'Dex app icon',
+    badge: { text: 'FEATURED PRODUCT', color: '#c4b5fd', bg: 'rgba(196,181,253,0.08)', border: 'rgba(196,181,253,0.22)' },
+    title: 'DEX',
+    url: 'https://dex-list.vercel.app/',
+    github: 'https://github.com/Shreyas-patil07/Dex',
+    tags: ['React 19', 'TypeScript', 'FastAPI', 'Firebase', 'Firestore', 'TMDB API'],
+    description: 'A full-stack entertainment platform for discovering movies and series, tracking watch history, and building a personal taste profile. Its recommendation engine creates Safe, Adjacent, and Wildcard picks from watched titles.',
+    architecture: 'React + FastAPI / Firebase',
+    code: [
+      { key: 'discovery', val: "'Movies & TV'" },
+      { key: 'identity', val: "'Watch history + taste profile'" },
+      { key: 'recommendations', val: "['Safe', 'Adjacent', 'Wildcard']" },
+    ],
+  },
+  {
     id: 'unifind',
     varName: 'unifind',
     logo: ufLogo,
@@ -71,10 +107,9 @@ const Projects = () => {
           {projects.map((project, i) => (
             <div
               key={project.id}
-              className={`project-card ${i % 2 === 0 ? 'reveal-left' : 'reveal-right'}`}
-              style={{ transitionDelay: `${i * 0.1}s` }}
+              className={\`project-card \${i % 2 === 0 ? 'reveal-left' : 'reveal-right'}\`}
+              style={{ transitionDelay: \`\${i * 0.1}s\` }}
             >
-              {/* Code pane */}
               <div className="project-code-pane">
                 <div style={{ width: '100%' }}>
                   <div style={{ display: 'flex', gap: '6px', marginBottom: '18px' }}>
@@ -101,18 +136,15 @@ const Projects = () => {
                 </div>
               </div>
 
-              {/* Info pane */}
               <div className="project-info-pane">
-                {/* Header Row: Title/Badge (Left) & Logo (Right) */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '24px' }}>
-                  
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                     <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 'clamp(1.5rem, 5vw, 2.2rem)', fontWeight: 800, letterSpacing: '-0.025em', color: '#fff' }}>
                       {project.title}
                     </h3>
-                    
+
                     {project.badge && (
-                      <div style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', padding: '6px 14px', borderRadius: '8px', background: project.badge.bg, border: `1px solid ${project.badge.border}`, alignSelf: 'flex-start' }}>
+                      <div style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', padding: '6px 14px', borderRadius: '8px', background: project.badge.bg, border: \`1px solid \${project.badge.border}\`, alignSelf: 'flex-start' }}>
                         <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: project.badge.color, display: 'inline-block' }} />
                         <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: project.badge.color, fontWeight: 700, letterSpacing: '0.08em' }}>{project.badge.text}</span>
                       </div>
@@ -122,6 +154,7 @@ const Projects = () => {
                   <img
                     src={project.logo}
                     alt={project.logoAlt}
+                    loading="lazy"
                     style={{
                       width: '88px',
                       height: '88px',
@@ -142,7 +175,6 @@ const Projects = () => {
                   {project.description}
                 </p>
 
-                {/* Links */}
                 <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
                   <a href={project.github} target="_blank" rel="noreferrer"
                     style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', color: '#d2bbff', textDecoration: 'none', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '5px', transition: 'color 0.2s' }}
