@@ -88,7 +88,7 @@ const Hero = () => {
             </h1>
 
             <p className="reveal" style={{ fontSize: '1.0625rem', color: '#9CA3AF', maxWidth: '440px', lineHeight: 1.8, transitionDelay: '0.24s' }}>
-              I build software that solves real problems — not tutorials. Hackathon winner, freelancer, currently building Dex.
+              I’m a Computer Engineering student focused on backend engineering and product development. I build APIs, connected applications, and practical tools — from Android audio streaming to personalized entertainment discovery.
             </p>
 
             {/* CTA row */}
@@ -121,8 +121,8 @@ const Hero = () => {
             <div className="reveal" style={{ display: 'flex', gap: '24px', paddingTop: '8px', borderTop: '1px solid rgba(255,255,255,0.05)', transitionDelay: '0.36s' }}>
               {[
                 { value: '1', label: 'Hackathon Win' },
-                { value: '2+', label: 'Products Shipped' },
-                { value: '10+', label: 'Technologies' },
+                { value: '4', label: 'Featured Projects' },
+                { value: '31+', label: 'Technologies' },
               ].map(stat => (
                 <div key={stat.label}>
                   <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '1.5rem', fontWeight: 800, color: '#d2bbff', letterSpacing: '-0.03em' }}>{stat.value}</div>
@@ -152,7 +152,7 @@ const Hero = () => {
                   <span style={{ color: '#e0e2e6', fontWeight: 600 }}>shreyas</span>{' '}
                   <span className="sh-p">= {'{'}</span>{'\n'}
                   {'  '}<span className="sh-key">role</span><span className="sh-p">:</span>{'      '}<span className="sh-str">'Backend Engineer'</span><span className="sh-p">,</span>{'\n'}
-                  {'  '}<span className="sh-key">currently</span><span className="sh-p">:</span>{' '}<span className="sh-str">'Building Dex'</span><span className="sh-p">,</span>{'\n'}
+                  {'  '}<span className="sh-key">currently</span><span className="sh-p">:</span>{' '}<span className="sh-str">'Building products'</span><span className="sh-p">,</span>{'\n'}
                   {'  '}<span className="sh-key">status</span><span className="sh-p">:</span>{'    '}<span className="sh-s2">'Open to Opportunities'</span><span className="sh-p">,</span>{'\n'}
                   {'  '}<span className="sh-key">stack</span><span className="sh-p">: [</span><span className="sh-str">'FastAPI'</span><span className="sh-p">,</span><span className="sh-str">'React'</span><span className="sh-p">,</span>{'\n'}
                   {'           '}<span className="sh-str">'Firebase'</span><span className="sh-p">,</span><span className="sh-str">'Gemini AI'</span><span className="sh-p">],</span>{'\n'}
