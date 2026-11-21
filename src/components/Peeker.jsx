@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import mascot from '../assets/Github_01.png';
 
+const randomBetween = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
 const Peeker = () => {
   const [peekState, setPeekState] = useState({
     active: false,
     side: Math.random() > 0.5 ? 'left' : 'right',
-    top: Math.floor(Math.random() * 55 + 20) + '%'
+    top: randomBetween(18, 78) + '%',
+    skipTransition: true
   });
 
   const [isHiddenByFooter, setIsHiddenByFooter] = useState(false);
@@ -22,7 +25,11 @@ const Peeker = () => {
     const handleFooter = (e) => {
       isHiddenRef.current = e.detail;
       setIsHiddenByFooter(e.detail);
-      if (e.detail) setPeekState(prev => ({ ...prev, active: false }));
+
+      // Keep the normal exit animation when the footer comes into view.
+      if (e.detail) {
+        setPeekState(prev => ({ ...prev, active: false, skipTransition: false }));
+      }
     };
 
     window.addEventListener('footer-visible', handleFooter);
@@ -44,25 +51,34 @@ const Peeker = () => {
       }
 
       const side = Math.random() > 0.5 ? 'left' : 'right';
-      const top = Math.floor(Math.random() * 55 + 20) + '%';
+      const top = randomBetween(18, 78) + '%';
 
-      // Move the hidden mascot first; reveal it on the next frame.
-      setPeekState({ active: false, side, top });
+      // Relocate while hidden without animating across the screen.
+      setPeekState({
+        active: false,
+        side,
+        top,
+        skipTransition: true
+      });
+
       frameId = requestAnimationFrame(() => {
         if (isHiddenRef.current) {
           scheduleNextPeek(1000);
           return;
         }
 
-        setPeekState(prev => ({ ...prev, active: true }));
+        // The reveal always uses the same animation, regardless of position.
+        setPeekState(prev => ({ ...prev, active: true, skipTransition: false }));
+
         timerId = setTimeout(() => {
-          setPeekState(prev => ({ ...prev, active: false }));
-          scheduleNextPeek(800 + Math.random() * 6000 + 6000);
-        }, 2500);
+          // The exit uses the same transition as the entrance.
+          setPeekState(prev => ({ ...prev, active: false, skipTransition: false }));
+          scheduleNextPeek(randomBetween(6000, 12000));
+        }, randomBetween(2200, 3200));
       });
     };
 
-    scheduleNextPeek(3000);
+    scheduleNextPeek(randomBetween(2500, 6000));
 
     return () => {
       clearTimeout(timerId);
@@ -79,6 +95,7 @@ const Peeker = () => {
     const tx = side === 'left'
       ? `translateX(${visible ? `-${100 - revealPct}%` : `-${hidePct}%`})`
       : `translateX(${visible ? `${100 - revealPct}%` : `${hidePct}%`})`;
+
     return `translateY(-50%) ${tx}`;
   };
 
@@ -91,9 +108,9 @@ const Peeker = () => {
         right: peekState.side === 'right' ? 0 : 'auto',
         width: `${imgSize}px`,
         transform: buildTransform(peekState.side, isVisible),
-        transition: peekState.active && !isHiddenByFooter
-          ? 'transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)'
-          : 'none',
+        transition: peekState.skipTransition
+          ? 'none'
+          : 'transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
         zIndex: 99999,
         pointerEvents: 'none',
       }}
