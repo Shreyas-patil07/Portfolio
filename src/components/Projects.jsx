@@ -107,8 +107,8 @@ const Projects = () => {
           {projects.map((project, i) => (
             <div
               key={project.id}
-              className={\`project-card \${i % 2 === 0 ? 'reveal-left' : 'reveal-right'}\`}
-              style={{ transitionDelay: \`\${i * 0.1}s\` }}
+              className={`project-card ${i % 2 === 0 ? 'reveal-left' : 'reveal-right'}`}
+              style={{ transitionDelay: `${i * 0.1}s` }}
             >
               <div className="project-code-pane">
                 <div style={{ width: '100%' }}>
@@ -144,7 +144,7 @@ const Projects = () => {
                     </h3>
 
                     {project.badge && (
-                      <div style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', padding: '6px 14px', borderRadius: '8px', background: project.badge.bg, border: \`1px solid \${project.badge.border}\`, alignSelf: 'flex-start' }}>
+                      <div style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', padding: '6px 14px', borderRadius: '8px', background: project.badge.bg, border: `1px solid ${project.badge.border}`, alignSelf: 'flex-start' }}>
                         <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: project.badge.color, display: 'inline-block' }} />
                         <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: project.badge.color, fontWeight: 700, letterSpacing: '0.08em' }}>{project.badge.text}</span>
                       </div>
