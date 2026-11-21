@@ -126,7 +126,9 @@ const Peeker = () => {
           transform: `${peekState.side === 'right' ? 'scaleX(-1) ' : ''}${
             isVisible ? 'rotate(35deg) scale(1)' : 'rotate(0deg) scale(0.7)'
           }`,
-          transition: 'transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
+          transition: peekState.skipTransition
+            ? 'none'
+            : 'transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
           transformOrigin: 'bottom center',
         }}
       />
