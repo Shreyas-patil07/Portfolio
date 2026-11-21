@@ -549,46 +549,6 @@
     margin: 0;
   }
 
-  /* -------- PROJECT CARD -------- */
-  .project-card {
-    background: rgba(13,17,23,0.7);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 20px;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    min-height: 320px;
-    transition: border-color 0.4s, box-shadow 0.4s, transform 0.4s;
-    position: relative;
-  }
-  .project-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 20px;
-    background: linear-gradient(135deg, rgba(124,58,237,0.03) 0%, transparent 60%);
-    pointer-events: none;
-  }
-  .project-card:hover {
-    border-color: rgba(124,58,237,0.35);
-    box-shadow: 0 16px 60px rgba(124,58,237,0.15);
-    transform: translateY(-4px);
-  }
-  .project-code-pane {
-    background: #0a0d14;
-    border-right: 1px solid rgba(255,255,255,0.05);
-    padding: 36px;
-    display: flex;
-    align-items: center;
-  }
-  .project-info-pane {
-    padding: 56px 64px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-  }
-
   /* -------- BENTO GRID (MASONRY) -------- */
   .bento-grid {
     column-count: 3;
@@ -736,15 +696,6 @@
     .bento-grid { column-count: 1; }
     .bento-card { padding: 22px; margin-bottom: 16px; }
 
-    /* ---- PROJECT CARDS ---- */
-    .project-card { grid-template-columns: 1fr; min-height: auto; }
-    .project-code-pane {
-      border-right: none;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      padding: 20px !important;
-    }
-    .project-info-pane { padding: 24px 20px !important; gap: 14px !important; }
-
     /* ---- GRIDS ---- */
     .responsive-grid-hero { grid-template-columns: 1fr; gap: 32px; }
     .responsive-grid-about { grid-template-columns: 1fr; gap: 36px; margin-bottom: 40px; }
@@ -780,7 +731,6 @@
   @media(max-width: 400px) {
     .inner { padding: 0 12px; }
     .bento-card { padding: 18px; }
-    .project-info-pane { padding: 20px 16px !important; }
     .contact-card-mobile { padding: 40px 16px 28px 16px !important; }
   }
 
@@ -1044,6 +994,260 @@
 
     .skill-category-card.v:hover,
     .skill-tag:hover {
+      transform: none;
+    }
+  }
+}
+
+
+@layer components {
+  /* -------- PROJECT GRID -------- */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .project-tile.reveal {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    min-height: 350px;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 26px;
+    border: 1px solid rgba(255,255,255,0.075);
+    border-radius: 18px;
+    background: linear-gradient(145deg, rgba(19,24,36,0.78), rgba(10,13,20,0.78));
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      background 0.25s ease;
+  }
+
+  .project-tile.reveal.v {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .project-tile.reveal.v:hover {
+    transform: translateY(-5px);
+    border-color: color-mix(in srgb, var(--project-accent) 42%, transparent);
+    background: linear-gradient(145deg, color-mix(in srgb, var(--project-accent) 8%, rgba(19,24,36,0.9)), rgba(10,13,20,0.9) 72%);
+    box-shadow: 0 16px 38px color-mix(in srgb, var(--project-accent) 11%, transparent);
+  }
+
+  .project-tile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 26px;
+    width: 42px;
+    height: 2px;
+    border-radius: 0 0 3px 3px;
+    background: var(--project-accent);
+    opacity: 0.8;
+    transition: width 0.25s ease, opacity 0.25s ease;
+  }
+
+  .project-tile.v:hover::before {
+    width: 76px;
+    opacity: 1;
+  }
+
+  .project-tile-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .project-tile-logo {
+    display: block;
+    width: 58px;
+    height: 58px;
+    flex: 0 0 58px;
+    padding: 4px;
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 13px;
+    background: rgba(255,255,255,0.035);
+    object-fit: contain;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+
+  .project-tile.v:hover .project-tile-logo {
+    transform: scale(1.045);
+    border-color: color-mix(in srgb, var(--project-accent) 40%, transparent);
+  }
+
+  .project-tile-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 26px;
+    padding: 5px 9px;
+    border: 1px solid color-mix(in srgb, var(--project-accent) 28%, transparent);
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--project-accent) 9%, transparent);
+    color: var(--project-accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.065em;
+    text-align: right;
+  }
+
+  .project-tile-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 14px;
+  }
+
+  .project-tile-heading h3 {
+    color: #f3f4f6;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+    font-weight: 750;
+    letter-spacing: -0.035em;
+    line-height: 1.15;
+    transition: color 0.25s ease;
+  }
+
+  .project-tile.v:hover .project-tile-heading h3 {
+    color: var(--project-accent);
+  }
+
+  .project-tile-heading > span {
+    color: #747d8d;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.025em;
+  }
+
+  .project-tile-description {
+    margin-bottom: 20px;
+    color: #9CA3AF;
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  .project-tile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: auto;
+  }
+
+  .project-tile-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 9px;
+    border: 1px solid rgba(255,255,255,0.065);
+    border-radius: 6px;
+    background: rgba(255,255,255,0.025);
+    color: #aeb4c0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    line-height: 1.25;
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease,
+      background 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .project-tile.v:hover .project-tile-tag {
+    border-color: color-mix(in srgb, var(--project-accent) 20%, rgba(255,255,255,0.04));
+  }
+
+  .project-tile-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.065);
+  }
+
+  .project-tile-architecture {
+    color: #687181;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    line-height: 1.5;
+  }
+
+  .project-tile-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .project-tile-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #c4b5fd;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 650;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  .project-tile-links a:hover {
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  .project-tile-featured {
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--project-accent) 13%, transparent);
+  }
+
+  @media (max-width: 700px) {
+    .projects-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 14px;
+    }
+
+    .project-tile.reveal {
+      min-height: auto;
+      padding: 22px;
+    }
+
+    .project-tile::before {
+      left: 22px;
+    }
+
+    .project-tile-top {
+      margin-bottom: 20px;
+    }
+
+    .project-tile-bottom {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-tile.reveal,
+    .project-tile-logo,
+    .project-tile-heading h3,
+    .project-tile-tag,
+    .project-tile-links a,
+    .project-tile::before {
+      transition: none !important;
+    }
+
+    .project-tile.reveal.v:hover,
+    .project-tile-links a:hover {
       transform: none;
     }
   }
