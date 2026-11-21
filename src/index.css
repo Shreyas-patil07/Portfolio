@@ -1278,13 +1278,13 @@
     transform: translateY(-4px);
   }
 
-  .project-tile-sync {
+  .project-tile-sync-in-it {
     background:
       radial-gradient(circle at 100% 0%, rgba(125,211,252,0.09), transparent 42%),
       linear-gradient(145deg, rgba(19,29,41,0.86), rgba(10,13,20,0.82));
   }
 
-  .project-tile-sync::before {
+  .project-tile-sync-in-it::before {
     left: 0;
     width: 3px;
     height: 100%;
@@ -1292,11 +1292,11 @@
     opacity: 0.85;
   }
 
-  .project-tile-sync.v:hover::before {
+  .project-tile-sync-in-it.v:hover::before {
     width: 3px;
   }
 
-  .project-tile-sync .project-tile-logo {
+  .project-tile-sync-in-it .project-tile-logo {
     border-radius: 17px;
     background: rgba(125,211,252,0.08);
     border-color: rgba(125,211,252,0.18);
