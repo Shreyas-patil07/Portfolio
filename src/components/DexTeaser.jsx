@@ -76,7 +76,7 @@ const DexTeaser = () => {
               {'  '}<span className="sh-key">headers</span><span className="sh-p">: {'{'}</span>{'\n'}
               {'    '}<span className="sh-key">Authorization</span><span className="sh-p">: </span><span className="sh-str">'Bearer firebase-id-token'</span>{'\n'}
               {'  '}<span className="sh-p">{'}'}</span>{'\n'}
-              <span className="sh-p">{'}');</span>{'\n'}
+              <span className="sh-p">{'});'}</span>{'\n'}
               <span className="sh-p">const</span>{' '}
               <span style={{ color: '#e0e2e6', fontWeight: 600 }}>recommendations</span>{' = '}
               <span className="sh-s2">await</span>{' '}
