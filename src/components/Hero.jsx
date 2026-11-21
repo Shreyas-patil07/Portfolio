@@ -109,7 +109,7 @@ const Hero = () => {
               </a>
               <a 
                 className="btn-secondary btn-m"
-                href="https://drive.google.com/file/d/1pTpbxpYqqPlJNLFGaJqXu4b1ewNfvtzk/view?usp=sharing"
+                href="https://drive.google.com/file/d/18TdtZP3aw0GlRe_HN40v4sM9JnRWKwH6/view"
                 target="_blank"
                 rel="noreferrer"
               >
