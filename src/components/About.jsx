@@ -57,7 +57,7 @@ const About = () => {
           {/* LEFT — text & code */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
             {[
-              "I'm Shreyas Patil, a third-year B.E. Computer Engineering student at Smt. Indira Gandhi College of Engineering, Ghansoli. I learn by building and shipping practical software.",
+              "I'm Shreyas Patil, a third-year B.E. Computer Engineering student at Smt. Indira Gandhi College of Engineering, Ghansoli. I started freelancing during my first year and learn by building practical software for real use cases.",
               "My focus is backend engineering with Python and FastAPI, REST APIs, authentication, databases, deployment, and AI integration. I also work across React and Android when a product needs it.",
               "I completed a Back-end Web Development internship at ElevanceSkills in August 2026. My team also won a 2026 hackathon with UNIFIND. My current project work includes Dex and Sync In It.",
             ].map((text, i) => (
