@@ -10,7 +10,6 @@ import mascot from './assets/Github_01.png';
 const About          = lazy(() => import('./components/About'));
 const Projects       = lazy(() => import('./components/Projects'));
 const Skills         = lazy(() => import('./components/Skills'));
-const DexTeaser      = lazy(() => import('./components/DexTeaser'));
 const Contact        = lazy(() => import('./components/Contact'));
 const Footer         = lazy(() => import('./components/Footer'));
 const TerminalEasterEgg = lazy(() => import('./components/TerminalEasterEgg'));
@@ -268,7 +267,6 @@ function App() {
         <About />
         <Projects />
         <Skills />
-        <DexTeaser />
         <Contact />
         <Footer />
         <TerminalEasterEgg />
