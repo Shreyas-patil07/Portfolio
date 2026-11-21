@@ -8,6 +8,7 @@ import mascot from './assets/Github_01.png';
 
 // Lazy-load everything below the fold — defers JS parse until needed
 const About          = lazy(() => import('./components/About'));
+const Experience     = lazy(() => import('./components/Experience'));
 const Projects       = lazy(() => import('./components/Projects'));
 const Skills         = lazy(() => import('./components/Skills'));
 const Contact        = lazy(() => import('./components/Contact'));
@@ -265,6 +266,7 @@ function App() {
       <Hero />
       <Suspense fallback={null}>
         <About />
+        <Experience />
         <Projects />
         <Skills />
         <Contact />
