@@ -38,8 +38,8 @@ const About = () => {
 
   const stats = [
     { value: 1,   label: 'Hackathon Win',   sub: '2026 UNIFIND'   },
-    { value: 2,   label: 'Production Apps', sub: 'Real clients'    },
-    { value: 10,  label: 'Technologies',    sub: 'Always growing'  },
+    { value: 4,   label: 'Featured Projects', sub: 'Across web & Android' },
+    { value: 31,  label: 'Technologies',    sub: 'Across the stack'  },
     { value: '∞', label: 'Curiosity',       sub: 'Never stops', noCounter: true },
   ];
 
@@ -57,9 +57,9 @@ const About = () => {
           {/* LEFT — text & code */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
             {[
-              "I'm Shreyas — a second-year computer engineering student who started freelancing before finishing my first year. I don't build tutorials. I build things people actually use.",
-              "My focus is backend systems: APIs that scale, databases that don't break, services that talk to each other elegantly. I care about architecture as much as the code.",
-              "In 2026, my team won a hackathon with UNIFIND. Currently building Dex — a Steam-inspired platform for movie and anime watchers.",
+              "I'm Shreyas Patil, a third-year B.E. Computer Engineering student at Smt. Indira Gandhi College of Engineering, Ghansoli. I learn by building and shipping practical software.",
+              "My focus is backend engineering with Python and FastAPI, REST APIs, authentication, databases, deployment, and AI integration. I also work across React and Android when a product needs it.",
+              "I completed a Back-end Web Development internship at ElevanceSkills in August 2026. My team also won a 2026 hackathon with UNIFIND. My current project work includes Dex and Sync In It.",
             ].map((text, i) => (
               <p key={i} className="reveal" style={{ fontSize: '1.1rem', color: '#9CA3AF', lineHeight: 1.8, transitionDelay: `${i * 0.1}s` }}>
                 {text.includes('Dex') ? (
@@ -80,7 +80,7 @@ const About = () => {
                 <code>
                   <span className="sh-p">{'{'}</span>{'\n'}
                   {'  '}<span className="sh-str">"role"</span><span className="sh-p">:</span>{'     '}<span className="sh-s2">"Backend Engineer"</span><span className="sh-p">,</span>{'\n'}
-                  {'  '}<span className="sh-str">"year"</span><span className="sh-p">:</span>{'     '}<span className="sh-s2">"CS Engineering, Year 2"</span><span className="sh-p">,</span>{'\n'}
+                  {'  '}<span className="sh-str">"year"</span><span className="sh-p">:</span>{'     '}<span className="sh-s2">"B.E. Computer Engineering, Year 3"</span><span className="sh-p">,</span>{'\n'}
                   {'  '}<span className="sh-str">"status"</span><span className="sh-p">:</span>{'   '}<span className="sh-s2">"Open to Opportunities"</span><span className="sh-p">,</span>{'\n'}
                   {'  '}<span className="sh-str">"building"</span><span className="sh-p">:</span>{' '}<span className="sh-s2">"Dex"</span>{'\n'}
                   <span className="sh-p">{'}'}</span>
