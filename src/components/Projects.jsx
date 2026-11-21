@@ -9,6 +9,7 @@ const projects = [
     type: 'Android · Audio sharing',
     accent: '#7dd3fc',
     badge: 'ANDROID APP',
+    mark: 'SYNC',
     logo: 'https://raw.githubusercontent.com/Shreyas-patil07/Sync-in-it/main/frontend/public/images/sync_in_it.png',
     logoAlt: 'Sync In It logo',
     github: 'https://github.com/Shreyas-patil07/Sync-in-it',
@@ -23,6 +24,7 @@ const projects = [
     type: 'Full-stack · Entertainment',
     accent: '#c4b5fd',
     badge: 'LIVE PRODUCT',
+    mark: 'DEX',
     logo: 'https://raw.githubusercontent.com/Shreyas-patil07/Dex/main/frontend/public/Dex_icon.png',
     logoAlt: 'Dex app icon',
     github: 'https://github.com/Shreyas-patil07/Dex',
@@ -38,6 +40,7 @@ const projects = [
     type: 'Web app · Student marketplace',
     accent: '#4ade80',
     badge: 'HACKATHON WINNER',
+    mark: 'UNI',
     logo: ufLogo,
     logoAlt: 'UNIFIND logo',
     github: 'https://github.com/Shreyas-patil07/UNIFIND',
@@ -52,6 +55,7 @@ const projects = [
     type: 'Desktop · Business management',
     accent: '#fbbf24',
     badge: 'OFFLINE-FIRST',
+    mark: 'PLAY',
     logo: cafeLogo,
     logoAlt: 'Gaming Cafe logo',
     github: 'https://github.com/Shreyas-patil07/gaming_cafe_manager',
@@ -108,7 +112,8 @@ const Projects = () => {
           {projects.map((project, index) => (
             <article
               key={project.id}
-              className={'project-tile reveal' + (project.featured ? ' project-tile-featured' : '')}
+              className={'project-tile project-tile-' + project.id + ' reveal' + (project.featured ? ' project-tile-featured' : '')}
+              data-mark={project.mark}
               style={{ '--project-accent': project.accent, transitionDelay: (index * 0.07) + 's' }}
             >
               <div className="project-tile-top">
