@@ -101,7 +101,7 @@ const Projects = () => {
 
       <div className="inner" style={{ position: 'relative' }}>
         <div className="reveal" style={{ marginBottom: '44px' }}>
-          <span className="ey">02 — Work</span>
+          <span className="ey">03 — Work</span>
           <h2 className="sh2">Selected <span className="tg">Projects.</span></h2>
           <p style={{ color: '#9CA3AF', fontSize: '1rem', marginTop: '12px', maxWidth: '500px', lineHeight: 1.7 }}>
             A selection of products and tools I’ve designed, developed, and shipped.
