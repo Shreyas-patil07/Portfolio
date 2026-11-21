@@ -5,7 +5,7 @@ const categories = [
     id: 'languages',
     title: 'Languages',
     accent: '#a78bfa',
-    items: ['Python', 'Dart', 'SQL', 'HTML', 'C++', 'CSS'],
+    items: ['Python', 'Kotlin', 'TypeScript', 'Dart', 'SQL', 'HTML', 'C++', 'CSS'],
   },
   {
     id: 'frontend',
@@ -17,7 +17,7 @@ const categories = [
     id: 'backend',
     title: 'Backend',
     accent: '#34d399',
-    items: ['FastAPI', 'Flask', 'REST API'],
+    items: ['FastAPI', 'Flask', 'Node.js', 'REST API'],
   },
   {
     id: 'database',
@@ -35,7 +35,7 @@ const categories = [
     id: 'ai',
     title: 'AI & Integrations',
     accent: '#c084fc',
-    items: ['Gemini API', 'Prompt Engineering', 'LLM Integration'],
+    items: ['Gemini API', 'TMDB API', 'LiveKit Cloud', 'WebRTC', 'Prompt Engineering', 'LLM Integration'],
   },
   {
     id: 'cloud',
@@ -75,7 +75,7 @@ const Skills = () => {
     <section id="skills" ref={sectionRef}>
       <div className="inner">
         <div className="reveal" style={{ marginBottom: '40px' }}>
-          <span className="ey">03 — Skills</span>
+          <span className="ey">04 — Skills</span>
           <h2 className="sh2">Tools I <span className="tg">Use.</span></h2>
           <p style={{ color: '#9CA3AF', fontSize: '1rem', marginTop: '12px', lineHeight: 1.7, maxWidth: '520px' }}>
             Technologies and tools I use to design, build, and ship projects.
